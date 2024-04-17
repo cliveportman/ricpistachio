@@ -29,21 +29,22 @@
   </body>
 </html>
 {{ end }} {{ block "container" . }}
-<div class="max-w-4xl mx-auto mt-12">
-  {{ template "form" . }} {{ template "chartric" . }} {{ template "chartother" .
-  }}
-</div>
+<div class="max-w-4xl mx-auto mt-12">{{ template "form" . }}</div>
 {{ end }} {{ block "form" . }}
 <div id="form" class="mb-6">
   <p class="font-bold text-2xl mb-3">Is your name Ric Pistachio?</p>
   <button
-    hx-post="/submit/ric"
+    hx-get="/yes"
+    hx-swap="outerHTML"
+    hx-target="#form"
     class="block w-full p-3 mb-1.5 bg-gray-300 hover:bg-lime-300 focus:bg-lime-300 text-left border font-medium text-lg"
   >
     🙂 Yes
   </button>
   <button
-    hx-post="/submit/other"
+    hx-get="/no"
+    hx-swap="outerHTML"
+    hx-target="#form"
     class="block w-full p-3 mb-1.5 bg-gray-300 hover:bg-lime-300 focus:bg-lime-300 text-left border font-medium text-lg"
   >
     😞 No, I am a mere mortal

@@ -105,8 +105,15 @@ func main() {
 	e.Renderer = newTemplate()
 
 	e.GET("/", func(c echo.Context) error {
-
 		return c.Render(200, "index", page)
+	})
+
+	e.GET("/yes", func(c echo.Context) error {
+		return c.Render(200, "chartric", page)
+	})
+
+	e.GET("/no", func(c echo.Context) error {
+		return c.Render(200, "chartother", page)
 	})
 
 	e.POST("/add", func(c echo.Context) error {
